@@ -24,6 +24,9 @@
     "vite": "^4.2.0"
   },
   "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
+    "extends": "./node_modules/standard/eslintrc.json",
+    "rules": {
+      "no-control-regex": 0
+    }
   }
 }

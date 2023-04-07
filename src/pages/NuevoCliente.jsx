@@ -6,8 +6,15 @@ export const action = async ({ request }) => {
   const formDat = await request.formData()
   const data = Object.fromEntries(formDat)
 
+  const email = formDat.get('email')
+  // eslint-disable-next-line prefer-regex-literals
+  const regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])")
+
   // Validación
   const errores = []
+  if (!regex.test(email)) {
+    errores.push('El email no es valido')
+  }
   if (Object.values(data).includes('')) {
     errores.push('Todos los campos son obligatorios')
   }
@@ -45,6 +52,7 @@ const NuevoCliente = () => {
         }
         <Form
           method='post'
+          noValidate
         >
           <Formulario />
           <input
