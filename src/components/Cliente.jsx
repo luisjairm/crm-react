@@ -1,6 +1,6 @@
 
 const Cliente = ({ cliente }) => {
-  const { nombre, empresa, id, email, telefono } = cliente
+  const { nombre, empresa, email, telefono } = cliente
   return (
     <tr className='border-b'>
       <td className='p-6 space-y-2'>
