@@ -7,7 +7,7 @@ export const action = async ({ request }) => {
   const data = Object.fromEntries(formDat)
 
   const email = formDat.get('email')
-  // eslint-disable-next-line prefer-regex-literals
+  // eslint-disable-next-line prefer-regex-literals, no-useless-escape
   const regex = new RegExp("([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\"\(\[\]!#-[^-~ \t]|(\\[\t -~]))+\")@([!#-'*+/-9=?A-Z^-~-]+(\.[!#-'*+/-9=?A-Z^-~-]+)*|\[[\t -Z^-~]*])")
 
   // Validación
