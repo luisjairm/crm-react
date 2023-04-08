@@ -1,6 +1,7 @@
-import { useNavigate, Form, useActionData } from 'react-router-dom'
+import { useNavigate, Form, useActionData, redirect } from 'react-router-dom'
 import Formulario from './Formulario'
 import Error from '../components/Error'
+import { agreagrCliente } from '../data/clientes'
 
 export const action = async ({ request }) => {
   const formDat = await request.formData()
@@ -18,9 +19,11 @@ export const action = async ({ request }) => {
   if (Object.values(data).includes('')) {
     errores.push('Todos los campos son obligatorios')
   }
-  if (Object.keys(errores).length) {
-    return errores
+  if (!Object.keys(errores).length) {
+    await agreagrCliente(data)
+    return redirect('/')
   }
+  return errores
 }
 
 const NuevoCliente = () => {

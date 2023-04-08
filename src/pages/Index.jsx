@@ -1,6 +1,6 @@
 import { useLoaderData } from 'react-router-dom'
 import Cliente from '../components/Cliente'
-import { obtenerClientes } from '../data/Clientes'
+import { obtenerClientes } from '../data/clientes'
 
 export const loader = async () => {
   const clientes = await obtenerClientes()
